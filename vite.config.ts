@@ -10,9 +10,5 @@ export default defineConfig({
   plugins: [vue(), vueJsx(), vueDevTools()],
   base: '/search-plus-vue3/',
   build: { outDir: 'docs' },
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
 })
