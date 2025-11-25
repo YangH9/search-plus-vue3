@@ -566,7 +566,6 @@ const getTextWidth = str => {
               transition: 0.2s ease-in-out;
               transition-property: color, background-color, border;
               outline: none;
-              line-height: calc(var(--height) - 10);
               border: none;
               padding: 0 5px 0 0;
               position: absolute;
@@ -574,7 +573,8 @@ const getTextWidth = str => {
               left: 0px;
               height: 100%;
               resize: none;
-              min-height: calc(var(--height) - 10);
+              min-height: calc(var(--height) - 4px);
+              line-height: calc(var(--height) - 4px);
             }
           }
         }
@@ -586,8 +586,9 @@ const getTextWidth = str => {
         position: relative;
         width: 6px;
         max-width: 100%;
-        height: var(--text-height);
+        height: var(--height);
         line-height: var(--text-height);
+        margin-top: -4px;
 
         .search_input {
           box-sizing: border-box;
@@ -600,8 +601,8 @@ const getTextWidth = str => {
           position: static;
           border: none;
           // vertical-align: top;
-          height: var(--text-height);
-          line-height: var(--text-height);
+          height: var(--height);
+          line-height: var(--height);
           padding: 0 5px 0 0;
           width: 6px;
           max-width: 100%;
@@ -618,6 +619,8 @@ const getTextWidth = str => {
       font-size: var(--fontsize);
       display: inline-block;
       color: rgba(0, 0, 0, 0.25);
+      height: var(--height);
+      line-height: var(--height);
     }
 
     .btn_del_all {
