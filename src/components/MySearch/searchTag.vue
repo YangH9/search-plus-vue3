@@ -288,7 +288,6 @@ const setPopoverPosition = () => {
 
     if (!textareaRef.value) return
 
-    const inputBoxParent = textareaRef.value.parentElement.parentElement.parentElement
     const inputBox = textareaRef.value
     const bodyWidth = document.body.offsetWidth
 
@@ -297,13 +296,9 @@ const setPopoverPosition = () => {
     if (!popoverElement) return
 
     const popoverWidth = popoverElement.offsetWidth + marginLeft
-    const offsetLeft = inputBoxParent.offsetLeft + inputBoxParent.offsetParent.offsetLeft
+    const offsetLeft = inputBox.getBoundingClientRect().left
     const left = offsetLeft + popoverWidth < bodyWidth ? offsetLeft : bodyWidth - popoverWidth
-    const top =
-      inputBoxParent.offsetTop +
-      inputBoxParent.offsetParent.offsetTop +
-      inputBox.offsetTop +
-      inputBox.offsetHeight
+    const top = inputBox.getBoundingClientRect().top + inputBox.offsetHeight
 
     popoverOption.marginLeft = marginLeft
     popoverOption.left = left
